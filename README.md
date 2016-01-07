@@ -1,6 +1,4 @@
-TurboTags is an integration format developed by Insurance Technologies Corporation to allow other companies to bridge their data into our comparative rater. This format is used by many carriers and vendors to communicate between two insurance related systems.
-
-### Format
+## Format
 TurboTags uses an INI flag file format, designed to be easily readable by any text editor, word processor, database or spreadsheet.  Each file will have information similar to that shown below.  The order of the tags is not important.  Any tags that are not valid will simply be ignored. The first line of this sample may appear and it will always appear exactly as shown. It is optional but gives basic format information about the information that follows.
 
 ```
@@ -22,10 +20,10 @@ TurboTags uses an INI flag file format, designed to be easily readable by any te
 
 You will notice that the tags are divided into common scope use groups.  Tags may have the same name and meaning, but be for a different scope.  Look up the tag example that applies to the scope for which you intend to use the data.
 
-### Fields
+## Fields
 Each line is divided into fields.  Each field is enclosed within double quotes, and each field is separated from the next by a comma.  No field may have a double quote within it.  The double quote is valid only as a delimiter.
 
-##### tagname
+#### tagname
 This is the first field on each line.  It is used to determine what information is being passed on that line. Tag names are separated into seven categories based upon scope.
 
 1. [System Tags](https://github.com/getitc/turborater-sdk/wiki/TurboTags-System-Tags)
@@ -57,7 +55,7 @@ These fields are values.  Valid values will vary, depending upon the tag name.  
 
 *Special Note on [Boolean](https://github.com/getitc/turborater-sdk/wiki/TurboTags-Custom-Types#boolean) types. The type of Boolean is Y for TRUE and N for FALSE.*
 
-### Program vs. Company Level Tags
+## Program vs. Company Level Tags
 There is a standard which needs to be noted regarding the naming of the TurboTags.  You will notice that some policy related tags have a twin with the "CO" prefix.  For example, "liabbilimits" and "coliabbilimits".  Both of these tags relate to the liability BI limits of the policy.  Because a comparative rater must sometimes bump selections to qualify a quote for a certain company, we use co-variables to bridge and work with what is actually being used for the company rather than what was selected in the comparative interface.  For example, if an agent selects a 12-month term in the comparative rater, and there is an installed company that only has 6-month policies.  If the rater is set to bump values, the bridge file will contain the following tags:
 
 ```
@@ -67,7 +65,7 @@ There is a standard which needs to be noted regarding the naming of the TurboTag
 
 This tells the program receiving the bridge that, while a 12-month term was originally requested, the quote is for and was rated with a 6-month term.  Handle accordingly.  Hence forth, this document will mean the amount the policy was actually rated with, or the "CO" amount, when it refers to "rated."
 
-### Combined Policy Notes
+## Combined Policy Notes
 Some of states support "Combined Coverage," a feature that allows agents to combine a liability policy from one company with a physical damage policy from another company.  If the agent rates such a policy, and then selects the bridge option, a single bridge file will be created that contains the information for both the liability and physical damage policies.  The information for the liability policy will be contained in tags that are prefaced by the word 'secondary'. 
 
 The financing information contained in the bridge file is that for the entire policy.  This means that the finance information tags contain the values that result from financing the combined total premiums of both the liability and physical damage policies.  To illustrate, let’s say that the agent has rated a "Combined Coverage" policy, which produced a liability policy with a total premium of $175, and a physical damage policy with a total premium of $660 (for this example, we will assume that there are no non-financed fees).  The finance company selected has a down payment of 20%.  The value in the down payment tag in the bridge file would be (175 + 660) = 835 x 0.20 = $167.
