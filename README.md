@@ -2,23 +2,27 @@
 TurboTags uses an INI flag file format, designed to be easily readable by any text editor, word processor, database or spreadsheet.  Each file will have information similar to that shown below.  The order of the tags is not important.  Any tags that are not valid will simply be ignored. The first line of this sample may appear and it will always appear exactly as shown. It is optional but gives basic format information about the information that follows.
 
 ```
-"tagname", "scope", "value1", "value2", "value3", "value4"
-"integformat", "sys0", "turbotags2"
-"integvers", "sys0", "2", "0"
-"stateabbr", "sys0", "IL"
-"companyname", "pol0", "Drive – Progressive"
-"companyeffdate", "pol0", "07/28/2005"
-"companyphone", "pol0", "(877) 776-2436"
-"term", "pol0", "6"
-"numofcars", "pol0", "1"
-"numofdrivers", "pol0", "1"
-"liablimits1", "car1", "20"
-"liablimits2", "car1", "40"
-"liablimits3", "car1", "15"
-"dob", "drv1", "05/23/1971"
+"tagname","scope","value1","value2","value3","value4"
+"integformat","sys0","turbotags2"
+"integvers","sys0","2","0"
+"stateabbr","sys0","IL"
+"companyname","pol0","Drive – Progressive"
+"companyeffdate","pol0","07/28/2005"
+"companyphone","pol0","(877) 776-2436"
+"term","pol0","6"
+"numofcars","pol0","1"
+"numofdrivers","pol0","1"
+"liablimits1","car1","20"
+"liablimits2","car1","40"
+"liablimits3","car1","15"
+"dob","drv1","05/23/1971"
+"violcode,"drv1:viol1","130"
 ```
 
 You will notice that the tags are divided into common scope use groups.  Tags may have the same name and meaning, but be for a different scope.  Look up the tag example that applies to the scope for which you intend to use the data.
+
+#### Note on Whitespace and Delimiters
+Pay careful attention to the use (or lack) of whitespace in the examples above. Delimiters must not contain whitespace between them, and use of "," within fields should be avoided if possible. A workaround may involve involve backslash escaping, but this is not guaranteed to be compatible with all systems.
 
 ## Fields
 Each line is divided into fields.  Each field is enclosed within double quotes, and each field is separated from the next by a comma.  No field may have a double quote within it.  The double quote is valid only as a delimiter.
@@ -34,7 +38,7 @@ This is the first field on each line.  It is used to determine what information 
 6. [Violation Tags](https://github.com/getitc/turbotags/wiki/Violation-Tags)
 7. [Rate Engine Tags](https://github.com/getitc/turbotags/wiki/Rate-Engine-Tags)
 
-##### scope
+#### scope
 This is the second field on each line.  It shows the scope of the information being passed on that line.  Valid scopes are: "sys0", "pol0", "drvX", "carX", "mprX", "vioX", "useX" and "excX".
 
 Scope|Definition
@@ -48,9 +52,12 @@ vioX|This scope denotes violation information as defined in [Violation Tags](htt
 useX|This scope denotes usage information.  The 'X' will be a number in the range 1-6, and indicates the specific usage to which the information refers.
 excX|This scope denotes excluded driver information.  The 'X' will be a number in the range 1-6, and indicates the specific excluded driver to whom the information refers.
 
-The "sys0" and "pol0" are used unscoped.  "useX" and "excX" can be used to scope any "carX" and "drvX" tags, respectively.  The majority of the scopes you use will be "pol0", "drvX", "carX" and "vioX".
+The "sys0" and "pol0" have no enumerable scopes so they use "0" as default.  "useX" and "excX" can be used to scope any "carX" and "drvX" tags, respectively.  The majority of the scopes you use will be "pol0", "drvX", "carX" and "vioX".
 
-##### value1 through value4
+###### Primary and Secondary Scopes
+Most scopes have only one priority, however, the secondary scope can be used to further distinguish between different tag data. "vioX" is often used as the secondary scope for drivers to map violations to a particular driver. It takes the form of "drvX:vioX", where "drvX" and "vioX" all follow the scoping rules mentioned in the table above.
+
+#### value1 through value4
 These fields are values.  Valid values will vary, depending upon the tag name.  Not all tags will have a "value2", "value3" and/or "value4" tag.  As a general rule, violations, discounts and surcharges are the only tags which will use the "value2", "value3" and/or "value4" fields.
 
 *Special Note on [Boolean](https://github.com/getitc/turbotags/wiki/Custom-Types#boolean) types. The type of Boolean is Y for TRUE and N for FALSE.*
