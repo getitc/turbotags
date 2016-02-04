@@ -1,5 +1,5 @@
 ## Format
-TurboTags uses a file format similar to CSV, designed to be easily readable by any text editor, word processor, database or spreadsheet.
+TurboTags uses a file format similar to INI, designed to be easily readable by any text editor, word processor, database or spreadsheet.
 Each file will have information similar to that shown below.
 The order of the tags is not important, any tags that are not valid will simply be ignored.
 The first line of this sample may appear and if it does it will always appear exactly as shown.
