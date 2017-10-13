@@ -107,3 +107,6 @@ This means that the finance information tags contain the values that result from
 To illustrate, let’s say that the agent has rated a "Combined Coverage" policy, which produced a liability policy with a total premium of $175, and a physical damage policy with a total premium of $660 (for this example, we will assume that there are no non-financed fees).
 The finance company selected has a down payment of 20%.
 The value in the down payment tag in the bridge file would be (175 + 660) = 835 x 0.20 = $167.
+
+## Need help?
+Please contact us using our [question and issue submission form](https://goo.gl/forms/rLKjrHg9oddGerAm1). 
