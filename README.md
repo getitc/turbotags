@@ -47,11 +47,12 @@ It is used to determine what information is being passed on that line. Tag names
 5. [Miscellaneous Premium Level Tags](https://github.com/getitc/turbotags/wiki/Miscellaneous-Premium-Level-Tags)
 6. [Violation Tags](https://github.com/getitc/turbotags/wiki/Violation-Tags)
 7. [Rate Engine Tags](https://github.com/getitc/turbotags/wiki/Rate-Engine-Tags)
+8. [Carrier Reason Not Bound Tags](https://github.com/getitc/turbotags/wiki/Carrier-Reason-Not-Bound)
 
 #### scope
 This is the second field on each line.
 It shows the scope of the information being passed on that line.
-Valid scopes are: `sys0`, `pol0`, `drvX`, `carX`, `mprX`, `vioX`, `useX`, and `excX`.
+Valid scopes are: `sys0`, `pol0`, `drvX`, `carX`, `mprX`, `vioX`, `useX`, `excX`, and `rnbX`.
 
 Scope|Definition
 ---|---
@@ -63,6 +64,7 @@ mprX|This scope denotes miscellaneous premium information as defined in [Miscell
 vioX|This scope denotes violation information as defined in [Violation Tags](https://github.com/getitc/turbotags/wiki/Violation-Tags).  The 'X' will be a number greater than or equal to one (1), and indicates the specific violation to which the information refers.  Violation information will also have a driver scope, to indicate which driver is the "owner" of the violation.
 useX|This scope denotes usage information.  The 'X' will be a number in the range 1-6, and indicates the specific usage to which the information refers.
 excX|This scope denotes excluded driver information.  The 'X' will be a number in the range 1-6, and indicates the specific excluded driver to whom the information refers.
+rnbX|This scope denotes carrier reason not bound information as defined in [Carrier Reason Not Bound Tags](https://github.com/getitc/turbotags/wiki/Carrier-Reason-Not-Bound).  The 'X' will be a number in the range 1-6, and indicates the specific reason a quote was not bound with a carrier.
 
 The "sys0" and "pol0" have no enumerable scopes so they use "0" as default.
 "useX" and "excX" can be used to scope any "carX" and "drvX" tags, respectively.
