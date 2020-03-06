@@ -47,7 +47,7 @@ It is used to determine what information is being passed on that line. Tag names
 5. [Miscellaneous Premium Level Tags](https://github.com/getitc/turbotags/wiki/Miscellaneous-Premium-Level-Tags)
 6. [Violation Tags](https://github.com/getitc/turbotags/wiki/Violation-Tags)
 7. [Rate Engine Tags](https://github.com/getitc/turbotags/wiki/Rate-Engine-Tags)
-8. [Carrier Reason Not Bound Tags](https://github.com/getitc/turbotags/wiki/Carrier-Reason-Not-Bound)
+8. [Carrier Reason Not Bound Tags](https://github.com/getitc/turbotags/wiki/Carrier-Reason-Not-Bound-Tags)
 
 #### scope
 This is the second field on each line.
